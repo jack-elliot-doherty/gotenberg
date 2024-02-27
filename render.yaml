@@ -17,5 +17,3 @@ services:
     envVars:
       - key: API_KEY # Used by your Nginx setup to secure access
         fromGroup: my-secret-group
-    dependencies:
-      - gotenberg

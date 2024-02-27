@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: gotenberg
+    internal: true
+    env: docker
+    dockerfilePath: ./gotenberg.Dockerfile
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: LOG_LEVEL
+        value: DEBUG # Example environment variable, adjust according to your needs
+
+  - type: web
+    name: nginx-proxy
+    env: docker
+    dockerfilePath: ./nginx-proxy.Dockerfile
+    plan: starter
+    # No `internal: true` here, so it's accessible from the internet
+    envVars:
+      - key: API_KEY # Used by your Nginx setup to secure access
+        fromGroup: my-secret-group
+    dependencies:
+      - gotenberg

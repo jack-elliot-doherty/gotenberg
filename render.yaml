@@ -1,7 +1,6 @@
 services:
-  - type: web
+  - type: pserv
     name: gotenberg
-    internal: true
     env: docker
     dockerfilePath: ./gotenberg.Dockerfile
     plan: starter
@@ -15,7 +14,6 @@ services:
     env: docker
     dockerfilePath: ./nginx-proxy.Dockerfile
     plan: starter
-    # No `internal: true` here, so it's accessible from the internet
     envVars:
       - key: API_KEY # Used by your Nginx setup to secure access
         fromGroup: my-secret-group

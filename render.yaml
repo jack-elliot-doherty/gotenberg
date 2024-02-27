@@ -14,4 +14,4 @@ services:
     dockerfilePath: ./nginx-proxy.Dockerfile
     plan: starter
     envVars:
-      fromGroup: my-secret-group
+      - fromGroup: my-secret-group

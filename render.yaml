@@ -14,5 +14,4 @@ services:
     dockerfilePath: ./nginx-proxy.Dockerfile
     plan: starter
     envVars:
-      - key: API_KEY # Used by your Nginx setup to secure access
-        fromGroup: my-secret-group
+      fromGroup: my-secret-group

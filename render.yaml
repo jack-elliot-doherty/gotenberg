@@ -4,7 +4,6 @@ services:
     env: docker
     dockerfilePath: ./gotenberg.Dockerfile
     plan: starter
-    healthCheckPath: /health
     envVars:
       - key: LOG_LEVEL
         value: DEBUG # Example environment variable, adjust according to your needs
